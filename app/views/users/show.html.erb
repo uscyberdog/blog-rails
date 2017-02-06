@@ -1,0 +1,26 @@
+<!-- Show any notice returned from a previous action -->
+<p id="notice"><%= notice %></p>
+<!-- Display a single user -->
+<h1>Showing User: <%= @user.first_name %> <%=@user.last_name %></h1>
+<span>Email: <%= @user.email %></span>
+
+<h3><b>Posts by: <%= @user.first_name %></b></h3>
+
+<% @user.posts.each do |post| %>
+    <p><b><%= link_to post.title, post_path(post) %>:</b> comments: <%= post.comments.count %> 
+    <br>
+    <%= post.content %>
+    </p>
+<% end %>
+
+<h3><b>Comments by: <%= @user.first_name %></b></h3>
+
+<% @user.comments.each do |comment| %>
+    <p><b><em>On Post: </em><%=comment.post.title%></b><br>
+    	 <%= comment.content %> 
+    </p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

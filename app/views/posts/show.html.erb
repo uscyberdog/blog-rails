@@ -1,0 +1,17 @@
+<!-- <p id="notice"><%= notice %></p> -->
+
+<h1>Showing Post: <%=@post.title %></h1>
+<h3>By: <%= @post.user.first_name %> <%=@post.user.last_name %></h3>
+
+<span><%= @post.content %></span>
+
+<h3><b>Comments:</b></h3>
+
+<% @post.comments.each do |comment| %>
+	<p><b>by <%=comment.user.first_name %> <%=comment.user.last_name %>: </b> <%= comment.content %></p>
+<% end %>
+
+<% if @current_user == @post.user %>
+	<%= link_to 'Edit', edit_post_path(@post) %> | 
+<% end %>
+<%= link_to 'Back', posts_path %>

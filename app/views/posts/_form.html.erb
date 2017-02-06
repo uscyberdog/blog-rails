@@ -1,0 +1,29 @@
+<%= form_for(post) do |f| %>
+
+  <fieldset>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <% if post.errors.messages[:title].any? %>
+      <div id="error_explanation">
+        <%= post.errors.messages[:title][0] %>
+      </div>
+    <% end %>
+
+<!--  commented out because logged in user is automatically assigned to post   
+    <%#= f.label :user_id %>
+    <%#= f.select :user_id, User.pluck(:first_name, :id) %>
+ -->
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "100x12"%>
+    <% if post.errors.messages[:content].any? %>
+      <div id="error_explanation">
+        <%= post.errors.messages[:content][0] %>
+      </div>
+    <% end %>
+
+  </fieldset>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+table {
+    border-collapse: collapse;
+    width: 75%;}
+
+.post_bg {
+		background-color: blue;
+}
+.user_bg {
+    background-color: green;
+}
+
+th {
+    height: 35px;
+    color: white;
+}
+td, table, th {
+	border: 1px solid black;
+}
+.center_text {
+	text-align: center;
+}
